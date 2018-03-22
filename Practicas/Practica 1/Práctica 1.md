@@ -3,13 +3,13 @@
 
 ### Información previa a la realización de los ejercicios:
 
-- Se deben instalar dos máquinas virtuales con el sistema operativo Ubuntu Server y además deben contener instalado "LAMP" .
-  - En nuestro caso se llaman "SWAP-Ubuntu-Server" y "SWAP-Ubuntu-Server-2"
- -- Cuándo hablemos de *máquina 1* estaremos refiriendonos a la máquina "SWAP-Ubuntu-Server"
- -- Cuándo hablemos de *máquina 2* estaremos refiriendonos a la máquina "SWAP-Ubuntu-Server-2"
-- En ambos casos el usuario se llama igual, es decir, el usuario es "carmen".
-- La IP *192.168.56.102* coresponde con "SWAP-Ubuntu-Server"
-- La IP *192.168.56.103* corresponde con "SWAP-Ubuntu-Server-2"
+* Se deben instalar dos máquinas virtuales con el sistema operativo Ubuntu Server y además deben contener instalado "LAMP" .
+  * En nuestro caso se llaman "SWAP-Ubuntu-Server" y "SWAP-Ubuntu-Server-2"
+  * Cuándo hablemos de *máquina 1* estaremos refiriendonos a la máquina "SWAP-Ubuntu-Server"
+  * Cuándo hablemos de *máquina 2* estaremos refiriendonos a la máquina "SWAP-Ubuntu-Server-2"
+* En ambos casos el usuario se llama igual, es decir, el usuario es "carmen".
+* La IP *192.168.56.102* coresponde con "SWAP-Ubuntu-Server"
+* La IP *192.168.56.103* corresponde con "SWAP-Ubuntu-Server-2"
 
 ### Ejercicios:
 
