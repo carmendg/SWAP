@@ -20,7 +20,7 @@ En nuestro caso *usuario* contendrá el valor de carmen y la IP variará dependi
 
 En la siguiente imagen veremos cuáles son las IP's de las dos máquinas (en color rojo la *máquina 1* y en color azul la *máquina 2*) y cómo ejecutamos el comando descrito anteriormente.
 
-![Ejecución del comando ssh](./Practica1/captura1)
+![Ejecución del comando ssh](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%201/Imagenes/captura1.png)
 
 A la hora de ejecutarlo nos pide la contraseña del usuario al que estamos accediendo y para demostrar que realmente hemos podido acceder ejecutamos `ifconfig` y veremos que la IP coincide con la IP que hemos puesto al ejecutar el ssh.
 
