@@ -13,7 +13,7 @@
 
 #####Ejercicios:
 
-** Ejercicio 1: ** *Comprobar que se puede establecer conexión entre las dos máquinas que se han instalado mediante `ssh`*
+**Ejercicio 1:** *Comprobar que se puede establecer conexión entre las dos máquinas que se han instalado mediante `ssh`*
 
 Para realizar este ejercicio debemos hacer uso del comando `ssh usuario@ip`
 En nuestro caso *usuario* contendrá el valor de carmen y la IP variará dependiendo de en qué máquina lo estemos ejecutando.
