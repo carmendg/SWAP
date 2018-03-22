@@ -24,7 +24,7 @@ En la siguiente imagen veremos cuáles son las IP's de las dos máquinas (en col
 
 A la hora de ejecutarlo nos pide la contraseña del usuario al que estamos accediendo y para demostrar que realmente hemos podido acceder ejecutamos `ifconfig` y veremos que la IP coincide con la IP que hemos puesto al ejecutar el ssh.
 
-![Comprobación de que se ha conectado correctamente ](URL "Título de la imagen")
+![Comprobación de que se ha conectado correctamente ](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%201/Imagenes/captura2.png "Comprobación de que se ha conectado correctamente")
 
 Por tanto queda demostrado que se puede establecer conexión entre ambas máquinas.
 
@@ -45,13 +45,13 @@ A continuación ejecutaremos el comando `curl http://ip/hola.html` donde *ip* co
 
 Primero lo hemos hecho tomando como "Servidor" a la *máquina 1* (En rojo) y "Cliente" a la *máquina 2* (En azul) y en la siguiente imagen veremos el resultado de ejecutar dicho comando.
 
-![Ejecución del comando curl en máquina 2](URL "Título de la imagen")
+![Ejecución del comando curl en máquina 2](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%201/Imagenes/captura4.png "Ejecución del comando curl en máquina 2")
 
 Como se observa en la *máquina 2* se obtiene el contenido del "hola.html".
 
 Por último lo hacemos tomando como "Servidor" a la *máquina 2* (En rojo) y "Cliente" a la *máquina 1* (En azul) y en la siguiente imagen veremos el resultado de ejecutar dicho comando.
 
-![Ejecución del comando curl en máquina 1](URL "Título de la imagen")
+![Ejecución del comando curl en máquina 1](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%201/Imagenes/captura3.png "Ejecución del comando curl en máquina 1")
 
 Como se observa en la *máquina 1* se obtiene el contenido del "hola.html".
 
