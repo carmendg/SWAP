@@ -62,7 +62,15 @@ Por último comprobamos que podemos conectarnos mediante `ssh` desde la máquina
 
 **Ejercicio 4:** *Establecer una tarea en cron que se ejecute cada hora para mantener actualizado el contenido del directorio `/var/www` entre las dos máquinas*
 
-[MODIFICAR AQUÍ]
-Para realizar este ejercicio debemos hacer uso del comando `ssh usuario@ip`
-En nuestro caso *usuario* contendrá el valor de carmen y la IP variará dependiendo de en qué máquina lo estemos ejecutando.
+Usaremos `nano` para modificar el archivo `/etc/crontrab` en el que incluiremos una linea para que se actualice el contenido de `/var/www` cada hora. Ésto lo podemos conseguir a partir del comando utilizado en el *ejercicio 2*.
+
+Ponemos * /1 * en la segunda columna para que se haga cada hora y el resto como * ya que no nos importa en que minuto sea ni que día.
+
+En clonclusión la línea que pondremos será:
+`* */1* * * *  root rsync -avc -e ssh carmen@192.168.56.102:/var/www/html /var/www/`
+
+![Modificación de crontab](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%202/Imagenes/captura8.png "Modificacion de crontab")
+
+Nota: Nosotros lo ejecutamos en la *máquina 2* para que se haga la copia de la *máquina 1* que es la que hace la función de servidor.
+
 
