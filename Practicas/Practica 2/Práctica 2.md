@@ -65,6 +65,7 @@ Por último comprobamos que podemos conectarnos mediante `ssh` desde la máquina
 Usaremos `nano` para modificar el archivo `/etc/crontrab` en el que incluiremos una línea para que se actualice el contenido de `/var/www` cada hora. Ésto lo podemos conseguir a partir del comando utilizado en el *ejercicio 2*.
 
 Ponemos * /1 * en la segunda columna para que se haga cada hora y el resto como * ya que no nos importa en que minuto sea ni que día.
+Nota: Lo hemos cambiado para comprobarlo en clase que funcionaba correctamente
 
 En conclusión la línea que pondremos será:
 `* * * * *  carmen rsync -avc -e ssh carmen@192.168.56.102:/var/www/html /var/www/`
