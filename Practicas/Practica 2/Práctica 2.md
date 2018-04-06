@@ -67,7 +67,7 @@ Usaremos `nano` para modificar el archivo `/etc/crontrab` en el que incluiremos 
 Ponemos * /1 * en la segunda columna para que se haga cada hora y el resto como * ya que no nos importa en que minuto sea ni que día.
 
 En conclusión la línea que pondremos será:
-`* */1* * * *  root rsync -avc -e ssh carmen@192.168.56.102:/var/www/html /var/www/`
+`* * * * *  carmen rsync -avc -e ssh carmen@192.168.56.102:/var/www/html /var/www/`
 
 ![Modificación de crontab](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%202/Imagenes/captura8.png "Modificacion de crontab")
 
