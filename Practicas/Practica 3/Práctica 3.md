@@ -32,7 +32,7 @@
 
 **Ejercicio 1:** *Configurar nginx como balanceador de carga en la máquina 3*
 
-##### Instalación nginx
+##### Instalación *nginx*
 
 Los pasos que vamos a seguir para hacerlo son:
 
@@ -49,14 +49,14 @@ Los pasos que vamos a seguir para hacerlo son:
 
 Nota: Para comprobar que se ha inicializado correctamente el servicio ejecutamos `sudo systemctl status nginx`
 
-##### Configuración nginx como balanceador de carga
+##### Configuración *nginx* como balanceador de carga
 
 Para conseguirlo debemos modificar el fichero `/etc/nginx/conf.d/default.conf`
 * Incluimos una directiva para definir el grupo de servidores finales (*máquina 1* y *máquina 2*). Ésto lo haremos de la siguiente manera:
 ```
 upstream apaches {
 	server 192.168.56.103;
-    server 192.168.56.104;
+	server 192.168.56.104;
 }
 ```
 Tal y como lo hemos implementado, estaremos usando un algoritmo de balanceo mediante "*round-robin*".
@@ -66,19 +66,19 @@ server {
  	listen 80;
  	server_name balanceador;
     
-    access_log /var/log/nginx/balanceador.access.log;
-    error_log /var/log/nginx/balanceador.error.log;
-    root /var/www/;
+	access_log /var/log/nginx/balanceador.access.log;
+	error_log /var/log/nginx/balanceador.error.log;
+	root /var/www/;
     
-    location /
-    {
-    	proxy_pass http://apaches;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_http_version 1.1;
-        proxy_set_header Connection "";
-    }
+	location /
+	{
+		proxy_pass http://apaches;
+		proxy_set_header Host $host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_http_version 1.1;
+		proxy_set_header Connection "";
+	}
 }
 ```
 
@@ -99,7 +99,7 @@ Por último vamos a comprobar que funciona tambíen usando el algoritmo de ponde
 ```
 upstream apaches {
 	server 192.168.56.103 weight=2;
-    server 192.168.56.104 weight=1;
+	server 192.168.56.104 weight=1;
 }
 ```
 
@@ -118,7 +118,7 @@ En este caso tendremos que ejecutarlo tres o cuatro veces.
 
 **Ejercicio 2:** *Configurar haproxy como balanceador de carga en la máquina 3*
 
-##### Instalación haproxy
+##### Instalación *haproxy*
 
 Para instalarlo simplemente debemos ejecutar `sudo apt-get install haproxy`
 
@@ -126,24 +126,24 @@ Para instalarlo simplemente debemos ejecutar `sudo apt-get install haproxy`
 
 Nota: Para comprobar que se ha inicializado correctamente el servicio ejecutamos `sudo systemctl status haproxy`
 
-##### Configuración haproxy como balanceador de carga
+##### Configuración *haproxy* como balanceador de carga
 
 Para conseguirlo debemos modificar el fichero `/etc/haproxy/haproxy.cfg`
 ```
 global
 	daemon
-    maxconn 256
+	maxconn 256
 defaults
 	mode http
-    contimeout 4000
-    clitimeout 42000
-    srvtimeout 43000
+	contimeout 4000
+	clitimeout 42000
+	srvtimeout 43000
 frontend http-in
 	bind *:80
-    default_backend servers
+	default_backend servers
 backend servers
 	server 		m1 192.168.56.103:80 maxconn 32
-    server 		m2 192.168.56.104:80 maxconn 32
+	server 		m2 192.168.56.104:80 maxconn 32
 ```
 
 ![Configuración de haproxy Round-Robin](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura10.png "Configuración de haproxy Round-Robin")
@@ -163,18 +163,18 @@ Por último vamos a comprobar que funciona tambíen usando el algoritmo de ponde
 ```
 global
 	daemon
-    maxconn 256
+	maxconn 256
 defaults
 	mode http
-    contimeout 4000
-    clitimeout 42000
-    srvtimeout 43000
+	contimeout 4000
+	clitimeout 42000
+	srvtimeout 43000
 frontend http-in
 	bind *:80
-    default_backend servers
+	default_backend servers
 backend servers
 	server 		m1 192.168.56.103:80 maxconn 32 weight 2
-    server 		m2 192.168.56.104:80 maxconn 32 weight 1
+	server 		m2 192.168.56.104:80 maxconn 32 weight 1
 ```
 
 Nosotros hemos decidido darle el peso de 1 a la *máquina 2* y el peso 2 a la *máquina 1* por lo que la *máquina 2* tendrá una carga menor (hemos supuesto que es menos potente) y la *máquina 1* aceptará más carga.
@@ -190,12 +190,46 @@ En este caso tendremos que ejecutarlo tres o cuatro veces.
 ![Prueba de funcionamiento Ponderación](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura13.png "Prueba de funcionamiento Ponderación")
 
 
-**Ejercicio 3:** *Someter a la granja web a una alta carga, generada con la herramienta Apache Benchmark, teniendo nginx*
+**Ejercicio 3:** *Someter a la granja web a una alta carga, generada con la herramienta Apache Benchmark, teniendo nginx y teniendo haproxy*
 
+Para realizar este ejercicio hemos decidido utilizar el Apache Benchmark con la siguiente especificicación:
+* el numero de peticiones (n) será 10000
+* el nivel de concurrencia (c) será 400
 
+Por tanto nuestro comando a ejecutar sera:
+`ab -n 10000 -c 400 http://192.168.56.102/hola.html`
 
+##### *nginx* sometido a una alta carga
 
-**Ejercicio 4:** *someter a la granja web a una alta carga, generada con la herramienta Apache Benchmark, teniendo haproxy*
+Paramos el servicio de *haproxy* e inicializamos el servicio de *nginx*
+Lanzamos el benchmark, y vemos los resultados:
 
+![Alta carga nginx parte 1](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura14.png "Alta carga nginx parte 1")
 
+![Alta carga nginx parte 2](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura15.png "Alta carga parte 2")
+
+Como podemos ver en la foto, ha tardado 10.533 segundos en resolver todas las peticiones(10000) y que no ha fallado ninguna peticón.
+
+##### *haproxy* sometido a una alta carga
+
+Paramos el servicio de *nginx* e inicializamos el servicio de *haproxy*
+Lanzamos el benchmark, y vemos los resultados:
+
+![Alta carga haproxy parte 1](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura16.png "Alta carga haproxy parte 1")
+
+![Alta carga haproxy parte 2](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura17.png "Alta carga haproxy parte 2")
+
+Como podemos ver en la foto, ha tardado 6.689 segundos en resolver todas las peticiones(10000) y que no ha fallado ninguna peticón.
+
+##### Comparación de ambos y conclusiones
+
+|  | *nginx* | *haproxy* |
+| ---------- | ---------- | ---------- |
+| Tiempo ejecución total (s) | 10.533 | 6.689 |
+| Número de peticiones realizadas | 10000   | 10000   |
+| Número de peticiones falladas | 0   | 0   |
+| Tiempo por petición (ms) | 421.308   | 267.568   |
+
+Cómo podemos ver en la tabla, ambos balanceadores han sido capaces de distribuir correctamente la carga a la que los hemos sometido, ya que no se han producido ningún fallo y se han atendido a todas las peticiones.
+La diferencia está en que el balanceador *haproxy* ha tardado menos tiempo en atenderlas y por tanto menos tiempo en completar toda la carga. Por este motivo diriamos que para esta carga el que mejor funciona es *haproxy*.
 
