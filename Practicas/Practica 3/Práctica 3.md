@@ -24,9 +24,9 @@
   * El usuario es "carmen"
   * Su IP se corresponde con *192.168.56.105*
 
-![Las IPs de las dos máquinas servidoras](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%202/Imagenes/captura0.png "Las IPs de las dos máquinas servvidoras")
+![Las IPs de las dos máquinas servidoras](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura0.png "Las IPs de las dos máquinas servidoras")
 
-![Las IPs del balanceador y la que lanza peticiones](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%202/Imagenes/captura1.png "Las IPs de las dos máquinas (balanceador, peticiones)")
+![Las IPs del balanceador y la que lanza peticiones](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura1.png "Las IPs de las dos máquinas (balanceador, peticiones)")
 
 ### Ejercicios:
 
@@ -41,11 +41,11 @@ Los pasos que vamos a seguir para hacerlo son:
 * A continuación instalamos ngix mediante: `sudo apt-get install nginx`
 * Y por último inicializamos el servicio con: `sudo systemctl start nginx`
 
-![Instalación de nginx parte1](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%202/Imagenes/captura2.png "Instalación de nginx parte1")
+![Instalación de nginx parte1](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura2.png "Instalación de nginx parte1")
 
-![Instalación de nginx parte2](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%202/Imagenes/captura3.png "Instalación de nginx parte2")
+![Instalación de nginx parte2](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura3.png "Instalación de nginx parte2")
 
-![Instalación de nginx parte3](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%202/Imagenes/captura4.png "Instalación de nginx parte3")
+![Instalación de nginx parte3](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura4.png "Instalación de nginx parte3")
 
 Nota: Para comprobar que se ha inicializado correctamente el servicio ejecutamos `sudo systemctl status nginx`
 
@@ -82,7 +82,7 @@ server {
 }
 ```
 
-![Configuración de nginx Round-Robin](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%202/Imagenes/captura5.png "Configuración de nginx Round-Robin")
+![Configuración de nginx Round-Robin](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura5.png "Configuración de nginx Round-Robin")
 
 Para que se hagan efectivos las modificaciones hechas en el fichero de configuración volvemos a iniciar el servicio `sudo systemctl restart nginx`
 
@@ -92,7 +92,7 @@ Cómo tenemos dos máquinas ervidoras bastará con ejecutarlo dos veces.
 
 Nota: Ésta ejecución se hace sobre la máquina lanzadora.
 
-![Prueba de funcionamiento Round-Robin](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%202/Imagenes/captura6.png "Prueba de funcionamiento Round-Robin")
+![Prueba de funcionamiento Round-Robin](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura6.png "Prueba de funcionamiento Round-Robin")
 
 Por último vamos a comprobar que funciona tambíen usando el algoritmo de ponderación. Para ello volveremos a modificar el fichero `/etc/nginx/conf.d/default.conf` sólamente la parte de la directiva.
 
@@ -105,7 +105,7 @@ upstream apaches {
 
 Nosotros hemos decidido darle el peso de 1 a la *máquina 2* y el peso 2 a la *máquina 1* por lo que la *máquina 2* tendrá una carga menor (hemos supuesto que es menos potente) y la *máquina 1* aceptará más carga.
 
-![Configuración de nginx Ponderación](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%202/Imagenes/captura7.png "Configuración de nginx Ponderación")
+![Configuración de nginx Ponderación](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura7.png "Configuración de nginx Ponderación")
 
 Nota: Debemos volver a reiniciar el servicio para que acepte la nueva configuración.
 
@@ -113,7 +113,7 @@ Y por último mostramos el resultado `curl` cuando estamos usando un algoritmo d
 
 En este caso tendremos que ejecutarlo tres o cuatro veces.
 
-![Prueba de funcionamiento Ponderación](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%202/Imagenes/captura8.png "Prueba de funcionamiento Ponderación")
+![Prueba de funcionamiento Ponderación](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura8.png "Prueba de funcionamiento Ponderación")
 
 
 **Ejercicio 2:** *Configurar haproxy como balanceador de carga en la máquina 3*
@@ -122,7 +122,7 @@ En este caso tendremos que ejecutarlo tres o cuatro veces.
 
 Para instalarlo simplemente debemos ejecutar `sudo apt-get install haproxy`
 
-![Instalación de haproxy](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%202/Imagenes/captura9.png "Instalación de haproxy")
+![Instalación de haproxy](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura9.png "Instalación de haproxy")
 
 Nota: Para comprobar que se ha inicializado correctamente el servicio ejecutamos `sudo systemctl status haproxy`
 
@@ -146,7 +146,7 @@ backend servers
     server 		m2 192.168.56.104:80 maxconn 32
 ```
 
-![Configuración de haproxy Round-Robin](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%202/Imagenes/captura10.png "Configuración de haproxy Round-Robin")
+![Configuración de haproxy Round-Robin](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura10.png "Configuración de haproxy Round-Robin")
 
 Para que se hagan efectivos las modificaciones hechas en el fichero de configuración volvemos a iniciar el servicio `sudo systemctl restart haproxy` y para que funcione correctamente debemos parar el servicio nginx `sudo systemctl stop nginx`.
 
@@ -156,7 +156,7 @@ Cómo tenemos dos máquinas ervidoras bastará con ejecutarlo dos veces.
 
 Nota: Ésta ejecución se hace sobre la máquina lanzadora.
 
-![Prueba de funcionamiento Round-Robin](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%202/Imagenes/captura11.png "Prueba de funcionamiento Round-Robin")
+![Prueba de funcionamiento Round-Robin](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura11.png "Prueba de funcionamiento Round-Robin")
 
 Por último vamos a comprobar que funciona tambíen usando el algoritmo de ponderación. Para ello volveremos a modificar el fichero `/etc/haproxy/haproxy.cfg` sólamente la parte del backend.
 
@@ -179,7 +179,7 @@ backend servers
 
 Nosotros hemos decidido darle el peso de 1 a la *máquina 2* y el peso 2 a la *máquina 1* por lo que la *máquina 2* tendrá una carga menor (hemos supuesto que es menos potente) y la *máquina 1* aceptará más carga.
 
-![Configuración de haproxy Ponderación](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%202/Imagenes/captura12.png "Configuración de haproxy Ponderación")
+![Configuración de haproxy Ponderación](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura12.png "Configuración de haproxy Ponderación")
 
 Nota: Debemos volver a reiniciar el servicio para que acepte la nueva configuración.
 
@@ -187,7 +187,7 @@ Y por último mostramos el resultado `curl` cuando estamos usando un algoritmo d
 
 En este caso tendremos que ejecutarlo tres o cuatro veces.
 
-![Prueba de funcionamiento Ponderación](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%202/Imagenes/captura13.png "Prueba de funcionamiento Ponderación")
+![Prueba de funcionamiento Ponderación](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura13.png "Prueba de funcionamiento Ponderación")
 
 
 **Ejercicio 3:** *Someter a la granja web a una alta carga, generada con la herramienta Apache Benchmark, teniendo nginx*
