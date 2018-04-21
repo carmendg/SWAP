@@ -231,5 +231,6 @@ Como podemos ver en la foto, ha tardado 6.689 segundos en resolver todas las pet
 | Tiempo por petición (ms) | 421.308   | 267.568   |
 
 Cómo podemos ver en la tabla, ambos balanceadores han sido capaces de distribuir correctamente la carga a la que los hemos sometido, ya que no se han producido ningún fallo y se han atendido a todas las peticiones.
+
 La diferencia está en que el balanceador *haproxy* ha tardado menos tiempo en atenderlas y por tanto menos tiempo en completar toda la carga. Por este motivo diriamos que para esta carga el que mejor funciona es *haproxy*.
 
