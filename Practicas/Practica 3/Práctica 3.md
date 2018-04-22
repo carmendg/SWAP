@@ -196,7 +196,7 @@ Para realizar este ejercicio hemos decidido utilizar el Apache Benchmark con la 
 * el número de peticiones (n) será 10000
 * el nivel de concurrencia (c) será 400
 
-Por tanto nuestro comando a ejecutar sera:
+Por tanto nuestro comando a ejecutar será:
 `ab -n 10000 -c 400 http://192.168.56.102/hola.html`
 
 ##### *nginx* sometido a una alta carga
