@@ -38,7 +38,7 @@ Los pasos que vamos a seguir para hacerlo son:
 
 * Actualizamos nuestro repositorio mediante la ejecución de: `sudo apt-get update` y la ejecución de `sudo apt-get dist-upgrade`
 * Eliminamos las dependencias que no sean necesarias mediante la ejecución de: `sudo apt-get autoremove`
-* A continuación instalamos ngix mediante: `sudo apt-get install nginx`
+* A continuación instalamos *nginx* mediante: `sudo apt-get install nginx`
 * Y por último inicializamos el servicio con: `sudo systemctl start nginx`
 
 ![Instalación de nginx parte1](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura2.png "Instalación de nginx parte1")
@@ -84,11 +84,11 @@ server {
 
 ![Configuración de nginx Round-Robin](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura5.png "Configuración de nginx Round-Robin")
 
-Para que se hagan efectivos las modificaciones hechas en el fichero de configuración volvemos a iniciar el servicio `sudo systemctl restart nginx`
+Para que se hagan efectivas las modificaciones hechas en el fichero de configuración volvemos a iniciar el servicio `sudo systemctl restart nginx`
 
 A continuación lo que hacemos es probar que el balanceo de carga se hace correctamente para ello usaremos el comando `curl http://192.168.56.102/hola.html`.
 
-Cómo tenemos dos máquinas ervidoras bastará con ejecutarlo dos veces.
+Cómo tenemos dos máquinas servidoras bastará con ejecutarlo dos veces.
 
 Nota: Ésta ejecución se hace sobre la máquina lanzadora.
 
@@ -148,11 +148,11 @@ backend servers
 
 ![Configuración de haproxy Round-Robin](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura10.png "Configuración de haproxy Round-Robin")
 
-Para que se hagan efectivos las modificaciones hechas en el fichero de configuración volvemos a iniciar el servicio `sudo systemctl restart haproxy` y para que funcione correctamente debemos parar el servicio nginx `sudo systemctl stop nginx`.
+Para que se hagan efectivas las modificaciones hechas en el fichero de configuración volvemos a iniciar el servicio `sudo systemctl restart haproxy` y para que funcione correctamente debemos parar el servicio nginx `sudo systemctl stop nginx`.
 
 A continuación lo que hacemos es probar que el balanceo de carga se hace correctamente para ello usaremos el comando `curl http://192.168.56.102/hola.html`.
 
-Cómo tenemos dos máquinas ervidoras bastará con ejecutarlo dos veces.
+Cómo tenemos dos máquinas servidoras bastará con ejecutarlo dos veces.
 
 Nota: Ésta ejecución se hace sobre la máquina lanzadora.
 
@@ -193,7 +193,7 @@ En este caso tendremos que ejecutarlo tres o cuatro veces.
 **Ejercicio 3:** *Someter a la granja web a una alta carga, generada con la herramienta Apache Benchmark, teniendo nginx y teniendo haproxy*
 
 Para realizar este ejercicio hemos decidido utilizar el Apache Benchmark con la siguiente especificicación:
-* el numero de peticiones (n) será 10000
+* el número de peticiones (n) será 10000
 * el nivel de concurrencia (c) será 400
 
 Por tanto nuestro comando a ejecutar sera:
@@ -201,25 +201,23 @@ Por tanto nuestro comando a ejecutar sera:
 
 ##### *nginx* sometido a una alta carga
 
-Paramos el servicio de *haproxy* e inicializamos el servicio de *nginx*
-Lanzamos el benchmark, y vemos los resultados:
+Paramos el servicio de *haproxy* e inicializamos el servicio de *nginx*, lanzamos el benchmark, y vemos los resultados:
 
 ![Alta carga nginx parte 1](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura14.png "Alta carga nginx parte 1")
 
 ![Alta carga nginx parte 2](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura15.png "Alta carga parte 2")
 
-Como podemos ver en la foto, ha tardado 10.533 segundos en resolver todas las peticiones(10000) y que no ha fallado ninguna peticón.
+Como podemos ver en la foto, ha tardado 10.533 segundos en resolver todas las peticiones(10000) y que no ha fallado ninguna petición.
 
 ##### *haproxy* sometido a una alta carga
 
-Paramos el servicio de *nginx* e inicializamos el servicio de *haproxy*
-Lanzamos el benchmark, y vemos los resultados:
+Paramos el servicio de *nginx* e inicializamos el servicio de *haproxy*, lanzamos el benchmark, y vemos los resultados:
 
 ![Alta carga haproxy parte 1](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura16.png "Alta carga haproxy parte 1")
 
 ![Alta carga haproxy parte 2](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%203/Imagenes/captura17.png "Alta carga haproxy parte 2")
 
-Como podemos ver en la foto, ha tardado 6.689 segundos en resolver todas las peticiones(10000) y que no ha fallado ninguna peticón.
+Como podemos ver en la foto, ha tardado 6.689 segundos en resolver todas las peticiones(10000) y que no ha fallado ninguna petición.
 
 ##### Comparación de ambos y conclusiones
 
@@ -232,5 +230,5 @@ Como podemos ver en la foto, ha tardado 6.689 segundos en resolver todas las pet
 
 Cómo podemos ver en la tabla, ambos balanceadores han sido capaces de distribuir correctamente la carga a la que los hemos sometido, ya que no se han producido ningún fallo y se han atendido a todas las peticiones.
 
-La diferencia está en que el balanceador *haproxy* ha tardado menos tiempo en atenderlas y por tanto menos tiempo en completar toda la carga. Por este motivo diriamos que para esta carga el que mejor funciona es *haproxy*.
+La diferencia está en que el balanceador *haproxy* ha tardado menos tiempo en atenderlas y por tanto menos tiempo en completar toda la carga. Por este motivo diríamos que para esta carga el que mejor funciona es *haproxy*.
 
