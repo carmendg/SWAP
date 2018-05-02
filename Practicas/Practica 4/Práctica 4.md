@@ -141,7 +141,8 @@ Para ver que se ha hecho correctamente volvemos a ver el estado:
 
 ![Comprobación del estado después de permitir lo](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%204/Imagenes/captura13.png "Comprobación del estado después de permitir lo")
 
-Por último que debemos hacer es permitir el acceso por SSH, HTTP y HTTPS.
+Por último lo que debemos hacer es permitir el acceso por SSH, HTTP y HTTPS.
+
 ***SSH***
 * `iptables -A INPUT -p tcp --dport 22 -j ACCEPT`
 * `iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT`
@@ -213,7 +214,7 @@ Además es posible que al ejecutarlo nos de un error diciendo: `insserv: warning
 # Description:       Enable service provided by daemon.
 ### END INIT INFO
 ```
-*Nota:* Ésta informaión la hemos obtenido de la siguiente página https://wiki.debian.org/LSBInitScripts.
+*Nota:* Ésta información la hemos obtenido de la siguiente página https://wiki.debian.org/LSBInitScripts.
 
 Por tanto el script finalmente deberá contener:
 ```
