@@ -29,7 +29,7 @@ Una vez iniciada la sesión realizaremos los siguientes pasos:
 
 * Creamos la base de datos mediante el comando `create database contactos`.
 * Nos conectamos a esa base de datos mediante el comando `use contactos`.
-* Mostramos las tablas que tenemos creadas mediante `show tables`. Si no tenemos ninguna nos debolverá un mensaje, en caso contrario nos mostrará las tablas que hayamos creado.
+* Mostramos las tablas que tenemos creadas mediante `show tables`. Si no tenemos ninguna nos devolverá un mensaje, en caso contrario nos mostrará las tablas que hayamos creado.
 * Creamos una tabla que se llame datos y que tenga como columnas:
 	* *nombre* de tipo varchar(100)
 	* *tlf* de tipo int.
@@ -48,7 +48,7 @@ Una vez iniciada la sesión realizaremos los siguientes pasos:
 
 ***Copia de seguridad máquina 1***
 
-El objetivo es crear una copia de seguridad de la base de datos en la *máquina 1* pero si mientras lo hacemos ésta se está actualizando no lo estaremos haciendo correctamente. Por ello lo primero que debemos hacer es conectarnos a MySQl (`mysql -u root -p`)y ejecutar `flush tables with read lock`. Con este comando evitamos las actualizaciones.
+El objetivo es crear una copia de seguridad de la base de datos en la *máquina 1* pero si mientras lo hacemos ésta se está actualizando no lo estaremos haciendo correctamente. Por ello lo primero que debemos hacer es conectarnos a MySQL (`mysql -u root -p`) y ejecutar `flush tables with read lock`. Con este comando evitamos las actualizaciones.
 
 ![Desactivar la posibilidad de actualizar la base de datos](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%205/Imagenes/captura3.png "Desactivar la posibilidad de actualizar la base de datos")
 
@@ -68,7 +68,7 @@ Primero obtenemos el fichero que contiene la copia de la base de datos que hemos
 
 **Ejercicio 3:** *Restauración de la base de datos en la máquina 2*
 
-Aunque tenemos el fichero donde está la copia de la base de datos, en él no se especifica sobre que base de datos se esta haciendo por tanto debemos crearla de nuevo y luego importar los datos contenidos en la copia.
+Aunque tenemos el fichero donde está la copia de la base de datos, en él no se especifica sobre que base de datos se está haciendo por tanto debemos crearla de nuevo y luego importar los datos contenidos en la copia.
 
 ***Creación de la base de datos***
 
@@ -143,7 +143,7 @@ Para ello seguimos los siguientes pasos:
 	* `FLUSH TABLES`
 	* `FLUSH TABLES WITH READ LOCK`
 
-Tras esto, obtenemos los datos de la BD que vamos a replicar para posteriormente usarlos en la configuración del esclavo(*máquina 2*). Para ello ejecutamos la orden: `SHOW MASTER STATUS`.
+Tras esto, obtenemos los datos de la BD que vamos a replicar para posteriormente usarlos en la configuración del esclavo (*máquina 2*). Para ello ejecutamos la orden: `SHOW MASTER STATUS`.
 
 ![Usuario de la máquina 1](https://github.com/carmendg/SWAP/blob/master/Practicas/Practica%205/Imagenes/captura12.png "Usuario de la máquina 1")
 
