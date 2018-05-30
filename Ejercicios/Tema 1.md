@@ -1,7 +1,7 @@
 # Ejercicios Tema 1 SWAP
 > Realizados por Carmen Domínguez González
 
-#####Ejercicio 1: *Buscar información sobre las tareas o servicios web para los que se usan más los programas apache, nginx, thttpd, Cherokee y node.js*
+####Ejercicio 1: *Buscar información sobre las tareas o servicios web para los que se usan más los programas apache, nginx, thttpd, Cherokee y node.js*
 
 * ***apache:***
 Se caracteriza principalmente por ser de código abierto, por tener una gran comunidad que te resuelven las dudas que tengas al respecto y además multiplataforma, es decir, es compatible con varios sistemas operativos entre ellos Windows, Linux y MacOS.
