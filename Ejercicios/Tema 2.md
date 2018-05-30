@@ -1,7 +1,7 @@
 # Ejecicios Tema 2 SWAP
 > Realizados por Carmen Domínguez González
 
-#####Ejercicio 1: *Calcular la disponibilidad del sistema si tenemos dos réplicas de cada elemento (en total 3 elementos en cada subsistema)*
+### Ejercicio 1: *Calcular la disponibilidad del sistema si tenemos dos réplicas de cada elemento (en total 3 elementos en cada subsistema)*
 
 *Datos:*
 
@@ -37,7 +37,7 @@ As = 99.6625% \*  99.9% \* 99.999999% \* 99.9992% \* 99.6625% \* 99.9999% \* 99.
 
 Por tanto la disponibilidad que tiene el sistema ahora mismo es de un ***99.213515%***.
 
-#####Ejercicio 2: *Buscar frameworks y librerías para diferentes lenguajes que permitan hacer aplicaciones altamente disponibles con relativa facilidad.*
+### Ejercicio 2: *Buscar frameworks y librerías para diferentes lenguajes que permitan hacer aplicaciones altamente disponibles con relativa facilidad.*
 
 **Frameworks**
 
@@ -53,7 +53,7 @@ Por tanto la disponibilidad que tiene el sistema ahora mismo es de un ***99.2135
 * *Math.js*: Es una librería de JavaScript y de Node.js. Su objetivo es simplificar los cálculos matemáticos y lo consigue proporcionando funciones y diferentes tipos de datos, consiguiendo de esta manera un código más sencillo, eficiente y simple para el programador.
 	* Referencia: http://mathjs.org/
 
-#####Ejercicio 3: *¿Cómo analizar el nivel de carga de cada uno de los subsistemas en el servidor? Buscar herramientas y aprender a usarlas.*
+### Ejercicio 3: *¿Cómo analizar el nivel de carga de cada uno de los subsistemas en el servidor? Buscar herramientas y aprender a usarlas.*
 
 * *ApacheBench(ab)*: Es la herramienta que proporciona Apache HTTP para realizar pruebas de carga diferentes según los parámetros que se le pasen. Es de openSource.
 	* Referencia: https://httpd.apache.org/docs/2.4/programs/ab.html
@@ -64,9 +64,9 @@ Por tanto la disponibilidad que tiene el sistema ahora mismo es de un ***99.2135
 * *Munin*: Esta herramienta destaca porque permite monitorizar varios PC simultáneamente ya que se hace a través de la web, mostrando diferentes gráficas con los resultados obtenidos. También es OpenSource.
 	* Referencia: http://munin-monitoring.org/
 
-#####Ejercicios 4:
+### Ejercicio 4:
 
-######A) Buscar ejemplos de balanceadores software y hardware (productos comerciales).
+#### A) Buscar ejemplos de balanceadores software y hardware (productos comerciales).
 
 **Software**
 
@@ -84,7 +84,7 @@ Por tanto la disponibilidad que tiene el sistema ahora mismo es de un ***99.2135
 * Barracuda
 * Resonate
 
-######B) Buscar productos comerciales para servidores de aplicaciones.
+#### B) Buscar productos comerciales para servidores de aplicaciones.
 
 * WebLogic (Oracle)
 * JBoss (Red Hat)
@@ -93,7 +93,7 @@ Por tanto la disponibilidad que tiene el sistema ahora mismo es de un ***99.2135
 * Base4 Server
 * .NET (Microsoft)
 
-######C) Buscar productos comerciales para servidores de almacenamiento.
+#### C) Buscar productos comerciales para servidores de almacenamiento.
 
 * Amazon EC2
 * Windows Azure
