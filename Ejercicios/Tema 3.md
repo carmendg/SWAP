@@ -1,7 +1,7 @@
 # Ejecicios Tema 3 SWAP
 > Realizados por Carmen Domínguez González
 
-#####Ejercicio 1: *Buscar con qué órdenes de terminal o herramientas gráficas podemos configurar bajo Windows y bajo Linux el enrutamiento del tráfico de un servidor para pasar el tráfico desde una subred a otra.*
+### Ejercicio 1: *Buscar con qué órdenes de terminal o herramientas gráficas podemos configurar bajo Windows y bajo Linux el enrutamiento del tráfico de un servidor para pasar el tráfico desde una subred a otra.*
 
 **Linux**
 Para esta distribución tenemos el comando `route` con el que podemos añadir una ruta (add) o borrarla (del). Cuando lo ejecutamos realmente estamos modificando la configuración de las redes y si queremos que las modificaciones que hemos hecho se mantengan debemos hacer que `route` se ejecute en el archivo `/etc/network/interfaces`.
@@ -15,7 +15,7 @@ En esta distribución tenemos la herramienta `Enrutamiento y servicio de acceso 
 
 *Referencia:* https://msdn.microsoft.com/es-es/library/dn614140(v=ws.11).aspx
 
-#####Ejercicio 2: *Buscar con qué órdenes de terminal o herramientas gráficas podemos configurar bajo Windows y bajo Linux el filtrado y bloqueo de paquetes.*
+### Ejercicio 2: *Buscar con qué órdenes de terminal o herramientas gráficas podemos configurar bajo Windows y bajo Linux el filtrado y bloqueo de paquetes.*
 
 **Windows**
 
